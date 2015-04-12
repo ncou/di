@@ -148,3 +148,9 @@ public function validate($logger)
 ```
 
 As you can see in this example we don't raise an error even if the provided logger is invalid. This is done since we don't want the application to break because of a faulty logger. In other cases it's probably more suitable to throw an exception.
+
+## License
+Phapi Di Container is licensed under the MIT License - see the LICENSE file for details
+
+## Contribute
+Contribution, bug fixes etc are [always welcome](https://github.com/phapi/di/issues/new).
