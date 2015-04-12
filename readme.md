@@ -2,7 +2,7 @@
 
 Phapi has a Dependency Injector Container that can be used to store both objects and parameters. It's easy to use and it gives the opportunity to replace many of the built in functionality in Phapi since Phapi uses the Container to store most of it's objects, dependencies and parameters.
 
-The container can be accessed in an endpoint by using the <code>$this->app</code> parameter.
+The container can be accessed in an resource by using the <code>$this->app</code> parameter.
 
 ## Defining parameters
 The easiest example is to store parameters in the container:
