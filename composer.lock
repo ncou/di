@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5a116b65d08bce2202c184cf8e70bbb8",
+    "hash": "933975eb503850af70b18088f6daae93",
     "packages": [
         {
             "name": "phapi/contract",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phapi/contract.git",
-                "reference": "0c6d2dd8e144689e50bd47f91a690455b9580a5a"
+                "reference": "93d4ec2f3f3f040b19802eddf38f0cf515852c69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phapi/contract/zipball/0c6d2dd8e144689e50bd47f91a690455b9580a5a",
-                "reference": "0c6d2dd8e144689e50bd47f91a690455b9580a5a",
+                "url": "https://api.github.com/repos/phapi/contract/zipball/93d4ec2f3f3f040b19802eddf38f0cf515852c69",
+                "reference": "93d4ec2f3f3f040b19802eddf38f0cf515852c69",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "interfaces",
                 "phapi"
             ],
-            "time": "2015-04-12 10:41:29"
+            "time": "2015-04-21 10:47:39"
         }
     ],
     "packages-dev": [
@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeclimate/php-test-reporter.git",
-                "reference": "527f794f52d68215ebbbd9c61f37a042f55dcc16"
+                "reference": "418ae782307841ac50fe26daa4cfe04520b0de9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeclimate/php-test-reporter/zipball/527f794f52d68215ebbbd9c61f37a042f55dcc16",
-                "reference": "527f794f52d68215ebbbd9c61f37a042f55dcc16",
+                "url": "https://api.github.com/repos/codeclimate/php-test-reporter/zipball/418ae782307841ac50fe26daa4cfe04520b0de9c",
+                "reference": "418ae782307841ac50fe26daa4cfe04520b0de9c",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
                 "codeclimate",
                 "coverage"
             ],
-            "time": "2015-04-02 01:24:12"
+            "time": "2015-04-18 14:43:54"
         },
         {
             "name": "doctrine/instantiator",

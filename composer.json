@@ -26,7 +26,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Phapi\\Di\\": "src/Phapi/Di/",
+      "Phapi\\Di\\": "src/Phapi/Di/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Phapi\\Tests\\Di\\": "tests/Phapi/Di/"
     }
   }
