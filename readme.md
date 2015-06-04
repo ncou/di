@@ -2,17 +2,17 @@
 
 Phapi has a Dependency Injector Container that can be used to store both objects and parameters. It's easy to use and it gives the opportunity to replace many of the built in functionality in Phapi since Phapi uses the Container to store most of it's objects, dependencies and parameters.
 
-The container can be accessed in an resource by using the <code>$this->app</code> parameter.
+The container can be accessed in an endpoint by using the <code>$this->container</code> parameter.
 
 ## Defining parameters
 The easiest example is to store parameters in the container:
 ```php
 <?php
 // Set parameter
-$di['param'] = 'value';
+$container['param'] = 'value';
 
 // Get parameter
-echo $di['param']; // Output: value
+echo $container['param']; // Output: value
 ```
 
 ## Defining objects and dependencies
@@ -20,15 +20,15 @@ Objects and its dependencies are defined by **anonymous functions** that returns
 ```php
 <?php
 // Define database configuration
-$di['dbUserName'] = 'root';
-$di['dbPassword'] = '1234';
+$container['dbUserName'] = 'root';
+$container['dbPassword'] = '1234';
 
 // Add DB connection to container
-$di['dbConn'] = function ($app) {
+$container['dbConn'] = function ($container) {
   return new PDO(
     'mysql:host=localhost;dbname=test',
-    $app['dbUserName'],
-    $app['dbPassword']
+    $container['dbUserName'],
+    $container['dbPassword']
   );
 };
 ```
@@ -38,54 +38,54 @@ Or by using the <code>bind()</code> method:
 ```php
 <?php
 // Define database configuration
-$di['dbUserName'] = 'root';
-$di['dbPassword'] = '1234';
+$container['dbUserName'] = 'root';
+$container['dbPassword'] = '1234';
 
 // Add DB connection to container
-$di->bind('dbConn', function ($app) {
+$container->bind('dbConn', function ($container) {
   return new PDO(
     'mysql:host=localhost;dbname=test',
-    $app['dbUserName'],
-    $app['dbPassword']
+    $container['dbUserName'],
+    $container['dbPassword']
   );
 });
 ```
 
 Notice that the function has access to the container instance which makes it possible to fetch parameters and dependencies from the container.
 
-By default the container will return the same instance of the object each time you get it. The <code>bind()</code> method takes a third optional parameter for defining if the **singleton** or **multiton** pattern should be used while creating the object. The default is singleton. Change it to multiton and each call to <code>$di['dbConn']</code> will now create and return a new instance.Example:
+By default the container will return the same instance of the object each time you get it. The <code>bind()</code> method takes a third optional parameter for defining if the **singleton** or **multiton** pattern should be used while creating the object. The default is singleton. Change it to multiton and each call to <code>$container['dbConn']</code> will now create and return a new instance.Example:
 
 ```php
 <?php
 // Define database configuration
-$di['dbUserName'] = 'root';
-$di['dbPassword'] = '1234';
+$container['dbUserName'] = 'root';
+$container['dbPassword'] = '1234';
 
 // Add DB connection to container
-$di->bind('dbConn', function ($app) {
+$container->bind('dbConn', function ($container) {
   return new PDO(
     'mysql:host=localhost;dbname=test',
-    $app['dbUserName'],
-    $app['dbPassword']
+    $container['dbUserName'],
+    $container['dbPassword']
   );
 }, \Phapi::TYPE_MULTITON);
 ```
 
 The order of the definitions doesn't matter since the objects are created when you get them.
 
-## Retrieving object and/or parameters
+## Retrieving objects and/or parameters
 Using the object is easy:
 ```php
 <?php
 // Use DB connection
-$di['dbConn']->query('SELECT ...');
+$container['dbConn']->query('SELECT ...');
 ```
 
 Or use the <code>make()</code> method:
 ```php
 <?php
 // Get DB connection
-$db = $di->make('dbConn');
+$db = $container->make('dbConn');
 // Use the connection
 $db->query('Select ...');
 ```
@@ -95,17 +95,17 @@ The container implements the <code>\ArrayAccess</code> interface which makes it 
 
 ```php
 <?php
-unset($di['dbConn']);
+unset($container['dbConn']);
 ```
 
 ## Validators
-In some cases you might want to ensure a certain key has a specific type of value. Phapi needs the <code>$di['log']</code> to be a PSR-3 compatible logger. To enforce this a validator is assigned to the **log** key.
+In some cases you might want to ensure a certain key has a specific type of value. Phapi needs the <code>$container['log']</code> to be a PSR-3 compatible logger. To enforce this a validator is assigned to the **log** key.
 
 ```php
 <?php
 use Phapi\Container\Validator\Log;
 
-$di->addValidator('log', new Log($this));
+$container->addValidator('log', new Log($this));
 ```
 
 The validators <code>validate()</code> method is a simple check if the provided logger is PSR-3 compatible:
@@ -141,7 +141,7 @@ public function validate($logger)
     // A PSR-3 compatible log writer hasn't been configured so we
     // don't know if it is compatible with Phapi. Therefore we
     // create an instance of the NullLogger instead
-    return function ($app) {
+    return function ($container) {
         return new NullLogger();
     };
 }
