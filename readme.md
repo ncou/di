@@ -4,6 +4,13 @@ Phapi has a Dependency Injector Container that can be used to store both objects
 
 The container can be accessed in an endpoint by using the <code>$this->container</code> parameter.
 
+## Installation
+The package is installed by default by the Phapi framework. Installing the package to use is separately can be done by using composer:
+
+```shell
+$ composer require phapi/di:1.*
+```
+
 ## Defining parameters
 The easiest example is to store parameters in the container:
 ```php
