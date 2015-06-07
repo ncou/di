@@ -20,7 +20,7 @@
     "phapi/contract": "dev-master"
   },
   "require-dev": {
-    "phpunit/phpunit": "4.6.*",
+    "phpunit/phpunit": "4.*",
     "mockery/mockery": "0.9.*",
     "codeclimate/php-test-reporter": "dev-master"
   },
