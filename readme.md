@@ -1,6 +1,6 @@
-# Phapi Dependency Injection Container
+# Dependency Injection Container
 
-Phapi has a Dependency Injector Container that can be used to store both objects and parameters. It's easy to use and it gives the opportunity to replace many of the built in functionality in Phapi since Phapi uses the Container to store most of it's objects, dependencies and parameters.
+Phapi has a built in Dependency Injector Container that can be used to store both objects and parameters. It's easy to use and it gives the opportunity to replace many of the built in functionalities since Phapi uses the Container to store most of it's objects, dependencies and parameters.
 
 The container can be accessed in an endpoint by using the <code>$this->container</code> parameter.
 
@@ -10,6 +10,8 @@ The package is installed by default by the Phapi framework. Installing the packa
 ```shell
 $ composer require phapi/di:1.*
 ```
+
+
 
 ## Defining parameters
 The easiest example is to store parameters in the container:
@@ -110,9 +112,8 @@ In some cases you might want to ensure a certain key has a specific type of valu
 
 ```php
 <?php
-use Phapi\Container\Validator\Log;
-
-$container->addValidator('log', new Log($this));
+// Register validator
+$container->addValidator('log', new \Phapi\Container\Validator\Log($this));
 ```
 
 The validators <code>validate()</code> method is a simple check if the provided logger is PSR-3 compatible:
