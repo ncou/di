@@ -16,7 +16,8 @@ use Phapi\Contract\Di\Validator;
  * @license  MIT (http://opensource.org/licenses/MIT)
  * @link     https://github.com/phapi/di
  */
-class Contract implements Validator {
+class Contract implements Validator
+{
 
     /**
      * Dependency Injector Container

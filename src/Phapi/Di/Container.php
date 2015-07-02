@@ -16,7 +16,8 @@ use \Phapi\Contract\Di\Validator;
  * @license  MIT (http://opensource.org/licenses/MIT)
  * @link     https://github.com/phapi/di
  */
-class Container implements Contract {
+class Container implements Contract
+{
 
     const TYPE_DEFAULT = self::TYPE_SINGLETON;
     const TYPE_SINGLETON = 1;
