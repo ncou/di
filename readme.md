@@ -1,5 +1,9 @@
 # Dependency Injection Container
 
+[![Build status](https://img.shields.io/travis/phapi/di.svg?style=flat-square)](https://travis-ci.org/phapi/di)
+[![Code Climate](https://img.shields.io/codeclimate/github/phapi/di.svg?style=flat-square)](https://codeclimate.com/github/phapi/di)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/phapi/di.svg?style=flat-square)](https://codeclimate.com/github/phapi/di/coverage)
+
 Phapi has a built in Dependency Injector Container that can be used to store both objects and parameters. It's easy to use and it gives the opportunity to replace many of the built in functionalities since Phapi uses the Container to store most of it's objects, dependencies and parameters.
 
 The container can be accessed in an endpoint by using the <code>$this->container</code> parameter.
